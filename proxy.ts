@@ -36,6 +36,7 @@ export async function proxy(request: NextRequest) {
 }
 
 // Server Actions are POSTs to the page route, so they pass through here too.
+// The icon files are public: the login page needs them before anyone has a session.
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|icon.svg|apple-icon.png).*)"],
 };
