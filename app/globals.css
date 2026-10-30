@@ -7,9 +7,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-mulish);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
+  --color-brand: var(--brand);
+  --color-brand-strip: var(--brand-strip);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,73 +50,102 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * Palette taken from the LTS Ventures website: brand navy #172384 (nav pills), indigo
+ * #566bb5 (headings, links), slate #42516a (the strip above the header) and the
+ * #3f62bd -> #111e6c hero gradient. Every text/background pair below was checked
+ * against WCAG AA (body text AAA).
+ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  color-scheme: light;
+  --radius: 0.875rem;
+
+  --background: #f5f7fc;
+  --foreground: #1c2557;
+  --card: #ffffff;
+  --card-foreground: #1c2557;
+  --popover: #ffffff;
+  --popover-foreground: #1c2557;
+  --primary: #172384;
+  --primary-foreground: #ffffff;
+  --secondary: #e4e9f8;
+  --secondary-foreground: #172384;
+  --muted: #e9edf8;
+  --muted-foreground: #4f63a6;
+  --accent: #e4e9f8;
+  --accent-foreground: #172384;
+  --destructive: #c62828;
+  --border: #dbe1f2;
+  --input: #cdd5ee;
+  --ring: #566bb5;
+
+  /* Page titles. A separate token because the dark-mode primary is a button colour, too
+     dark to read as text on the dark page. */
+  --brand: #172384;
+  --brand-strip: #42516a;
+
+  --chart-1: #566bb5;
+  --chart-2: #3f62bd;
+  --chart-3: #172384;
+  --chart-4: #7c8ec6;
+  --chart-5: #111e6c;
+
+  --sidebar: #172384;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #172384;
+  --sidebar-accent: rgb(255 255 255 / 16%);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 16%);
+  --sidebar-ring: #c5dcff;
+  --gradient-top: #3f62bd;
+  --gradient-mid: #172384;
+  --gradient-bottom: #111e6c;
 }
 
+/* Dark: deep indigo surfaces and soft, slightly dimmed text instead of pure white. */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  color-scheme: dark;
+
+  --background: #0d1131;
+  --foreground: #dde2f4;
+  --card: #141a47;
+  --card-foreground: #dde2f4;
+  --popover: #171d4d;
+  --popover-foreground: #dde2f4;
+  --primary: #4a60c9;
+  --primary-foreground: #ffffff;
+  --secondary: #212a63;
+  --secondary-foreground: #cdd4f1;
+  --muted: #1b2255;
+  --muted-foreground: #97a3d6;
+  --accent: #222b66;
+  --accent-foreground: #dde2f4;
+  --destructive: #e58a8a;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 14%);
+  --ring: #7186e0;
+
+  --brand: #9fb1f1;
+  --brand-strip: #2a3565;
+
+  --chart-1: #7186e0;
+  --chart-2: #4a60c9;
+  --chart-3: #9fb1f1;
+  --chart-4: #566bb5;
+  --chart-5: #3a4a9c;
+
+  --sidebar: #121a52;
+  --sidebar-foreground: #dde2f4;
+  --sidebar-primary: #dde2f4;
+  --sidebar-primary-foreground: #121a52;
+  --sidebar-accent: rgb(255 255 255 / 12%);
+  --sidebar-accent-foreground: #dde2f4;
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: #7186e0;
+  --gradient-top: #1c2b73;
+  --gradient-mid: #121a52;
+  --gradient-bottom: #0a0e2b;
 }
 
 @layer base {
@@ -126,5 +157,15 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* The LTS hero gradient, turned vertical, behind the whole sidebar (desktop and mobile). */
+  [data-sidebar="sidebar"] {
+    background-image: linear-gradient(
+      180deg,
+      var(--gradient-top),
+      var(--gradient-mid) 65%,
+      var(--gradient-bottom)
+    );
   }
 }

@@ -70,6 +70,7 @@ export function AppSidebar({
                     asChild
                     isActive={isActive(pathname, item.href)}
                     tooltip={item.title}
+                    className="rounded-xl font-semibold data-active:font-bold"
                   >
                     <Link href={item.href}>
                       <item.icon />
@@ -88,7 +89,7 @@ export function AppSidebar({
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton size="lg" tooltip={username}>
+                <SidebarMenuButton size="lg" tooltip={username} className="rounded-xl">
                   <Avatar className="size-8">
                     <AvatarFallback>
                       {username.slice(0, 2).toUpperCase()}
@@ -96,7 +97,7 @@ export function AppSidebar({
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">{username}</span>
-                    <span className="truncate text-xs text-muted-foreground">
+                    <span className="truncate text-xs text-sidebar-foreground/70">
                       {role}
                     </span>
                   </div>
